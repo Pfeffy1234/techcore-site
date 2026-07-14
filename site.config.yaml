@@ -1,0 +1,19 @@
+schema_version: "1.0"
+description: >
+  Statische tagcore.de-Bewerbungsseite. Export erzeugt dist/ für Upload beim Hoster.
+
+domain: tagcore.de
+base_url: https://tagcore.de
+
+# QR-Ziel auf gedruckten Unterlagen (Phase 1: Profil + Kernunterlagen)
+qr_landing_path: /bewerbung
+
+# Pfade relativ zu diesem Projekt oder absolut (Windows)
+profile_yaml: "../BewerbungsAgent/knowledge/profile.yaml"
+applications_base: "K:/AI/Bewerbungen 2026"
+reference_base: "K:/AI/application documents"
+
+# Nur Bewerbungen mit freigegebenem Anschreiben (metadata.approved_at gesetzt)
+require_approved: true
+
+output_dir: dist
