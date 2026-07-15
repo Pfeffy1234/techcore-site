@@ -1,6 +1,8 @@
 [build]
   publish = "dist"
-  command = "python scripts/export_site.py"
+  # Export (export_site.py) braucht lokale Windows-Pfade (K:/AI/Bewerbungen …).
+  # dist/ ist im Repo versioniert — lokal exportieren, dann committen/pushen.
+  command = "echo 'Deploying pre-built dist/ from repository'"
 
 [build.environment]
   PYTHON_VERSION = "3.12"
