@@ -469,13 +469,25 @@ def _render_contact(contact: ContactInfo) -> str:
     return f'        <p class="about-contact">{" · ".join(parts)}</p>'
 
 
+def _render_lebenslauf_band(cv_href: str | None) -> str:
+    if not cv_href:
+        return ""
+    return f"""    <section class="lebenslauf-band" id="lebenslauf" aria-label="Lebenslauf">
+      <p class="lebenslauf-lead">Alle weiteren Details finden Sie in meinem aktuellen Lebenslauf.</p>
+      <a class="lebenslauf-cta" href="{escape(cv_href)}" download>
+        <span class="lebenslauf-cta-label">Meinen Lebenslauf 2026 ansehen</span>
+        <span class="lebenslauf-cta-arrow" aria-hidden="true">→</span>
+      </a>
+    </section>"""
+
+
 def render_homepage(
     *,
     title: str,
     person: dict,
     contact: ContactInfo,
     experiences: list[ExperienceEntry],
-    documents: list[tuple[str, str]],
+    cv_href: str | None,
     brand_name: str,
 ) -> str:
     name = escape(str(person.get("name", "Bewerbungsprofil")))
@@ -484,19 +496,7 @@ def render_homepage(
     station_cards = _render_station_cards(experiences)
     about_paragraphs = _render_about_paragraphs(summary)
     contact_block = _render_contact(contact)
-
-    doc_items = "\n".join(
-        f'          <li><a href="{escape(href)}" download>{escape(label)}</a></li>'
-        for label, href in documents
-    )
-    downloads_section = ""
-    if doc_items:
-        downloads_section = f"""    <section class="panel downloads-panel" id="unterlagen">
-      <h2>Unterlagen</h2>
-      <ul class="downloads">
-{doc_items}
-      </ul>
-    </section>"""
+    lebenslauf_band = _render_lebenslauf_band(cv_href)
 
     return f"""<!DOCTYPE html>
 <html lang="de">
@@ -521,6 +521,8 @@ def render_homepage(
       </div>
     </section>
 
+{lebenslauf_band}
+
     <section class="panel about-panel" id="ueber-mich" aria-labelledby="about-title">
       <h2 id="about-title">Über mich</h2>
       <div class="about-body">
@@ -534,7 +536,6 @@ def render_homepage(
 {contact_block}
       </div>
     </section>
-{downloads_section}
   </main>
 
   <footer class="site-footer">
@@ -818,6 +819,57 @@ main {
 
 .station-cert-hint.muted { color: var(--muted); font-weight: 500; }
 
+.lebenslauf-band {
+  margin: 0 0 1.25rem;
+  padding: 1.25rem 1.6rem;
+  text-align: center;
+  border-radius: var(--radius);
+  border: 1px solid rgba(29, 78, 216, 0.2);
+  background: linear-gradient(135deg, rgba(219, 234, 254, 0.45) 0%, rgba(255, 255, 255, 0.72) 100%);
+}
+
+.lebenslauf-lead {
+  margin: 0 auto 1rem;
+  max-width: 36rem;
+  color: var(--muted);
+  font-size: 0.98rem;
+}
+
+.lebenslauf-cta {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  width: 100%;
+  padding: 0.95rem 1.25rem;
+  border-radius: 999px;
+  border: 1px solid rgba(29, 78, 216, 0.35);
+  background: linear-gradient(180deg, #ffffff 0%, var(--accent-soft) 100%);
+  color: var(--accent);
+  font-weight: 600;
+  font-size: 1rem;
+  text-decoration: none;
+  transition: transform var(--transition), box-shadow var(--transition), border-color var(--transition);
+  box-shadow: 0 4px 14px rgba(29, 78, 216, 0.08);
+}
+
+.lebenslauf-cta:hover {
+  color: var(--accent-hover);
+  text-decoration: none;
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-hover);
+  border-color: rgba(29, 78, 216, 0.5);
+}
+
+.lebenslauf-cta-arrow {
+  font-size: 1.1rem;
+  transition: transform var(--transition);
+}
+
+.lebenslauf-cta:hover .lebenslauf-cta-arrow {
+  transform: translateX(3px);
+}
+
 .about-body p { margin: 0 0 0.85rem; }
 
 .about-location {
@@ -1096,11 +1148,13 @@ def export_site(config: SiteConfig | None = None) -> Path:
 
     assets_dir = output_dir / "assets"
     assets_dir.mkdir(parents=True, exist_ok=True)
-    document_links: list[tuple[str, str]] = []
+    cv_href: str | None = None
     for label, source, asset_name in docs:
+        if label != "Lebenslauf 2026":
+            continue
         target = assets_dir / asset_name
         shutil.copy2(source, target)
-        document_links.append((label, f"/assets/{asset_name}"))
+        cv_href = f"/assets/{asset_name}"
 
     experiences = copy_certificates(
         output_dir=output_dir,
@@ -1115,7 +1169,7 @@ def export_site(config: SiteConfig | None = None) -> Path:
         person=person,
         contact=contact,
         experiences=experiences,
-        documents=document_links,
+        cv_href=cv_href,
         brand_name=config.brand_name,
     )
     (output_dir / "index.html").write_text(homepage_html, encoding="utf-8")

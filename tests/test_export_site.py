@@ -240,6 +240,12 @@ def test_export_site_portfolio(tmp_path: Path, monkeypatch: pytest.MonkeyPatch) 
     assert "Moosburg" in homepage_html
     assert "test@example.com" in homepage_html
     assert "Lebenslauf 2026" in homepage_html
+    assert 'id="lebenslauf"' in homepage_html
+    assert "Meinen Lebenslauf 2026 ansehen" in homepage_html
+    assert "/assets/lebenslauf-2026.docx" in homepage_html
+    assert "Unterlagen" not in homepage_html
+    assert "atzinger-zeugnis.jpg" not in homepage_html
+    assert "tibas-arbeitszeugnis.jpeg" not in homepage_html
     assert "TagCore" in homepage_html
     assert "techcore" not in homepage_html.lower()
     assert "Aktuelle Bewerbungen" not in homepage_html
