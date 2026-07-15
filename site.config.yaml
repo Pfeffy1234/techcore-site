@@ -6,11 +6,13 @@ description: >
 domain: techcore.de
 base_url: https://www.techcore.de
 
-# QR-Ziel auf gedruckten Unterlagen (Startseite mit Lebenslauf + Zeugnisse)
+# QR-Ziel auf gedruckten Unterlagen (Startseite mit Portfolio)
 qr_landing_path: /
 
 # Pfade relativ zu diesem Projekt oder absolut (Windows)
 profile_yaml: "../BewerbungsAgent/knowledge/profile.yaml"
+experiences_dir: "../BewerbungsAgent/knowledge/experiences"
+sender_config: "../BewerbungsAgent/knowledge/docx/config.yaml"
 applications_base: "K:/AI/Bewerbungen 2026"
 reference_base: "K:/AI/application documents"
 

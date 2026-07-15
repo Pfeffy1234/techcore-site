@@ -4,26 +4,116 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Florian Pfisterhammer — techcore.de</title>
-  <meta name="description" content="Bewerbungsunterlagen — Florian Pfisterhammer">
+  <meta name="description" content="Portfolio und Bewerbungsmappe — Florian Pfisterhammer">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/assets/site.css">
 </head>
 <body>
-  <main class="container">
-    <header class="hero">
-      <h1>Florian Pfisterhammer</h1>
-      <p class="headline">Key Account Manager / Vertrieb · KI-Automatisierung</p>
-    </header>
-    <section>
-      <h2>Unterlagen</h2>
-      <ul class="downloads">
-        <li><a href="/assets/lebenslauf-2026.docx" download>Lebenslauf 2026</a></li>
-        <li><a href="/assets/atzinger-zeugnis.jpg" download>Arbeitszeugnis Atzinger Verpackung GmbH</a></li>
-        <li><a href="/assets/tibas-arbeitszeugnis.jpeg" download>Arbeitszeugnis Tibas Gummi GmbH</a></li>
+  <a class="skip-link" href="#main">Zum Inhalt springen</a>
+  <main id="main">
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="hero-inner fade-in">
+        <p class="hero-eyebrow">Portfolio</p>
+        <h1 id="hero-title">Florian Pfisterhammer</h1>
+        <p class="hero-tagline">Key Account Manager / Vertrieb · KI-Automatisierung</p>
+      </div>
+    </section>
+
+    <section class="panel stationen-panel" id="stationen" aria-labelledby="stationen-title">
+      <h2 id="stationen-title">Meine Stationen</h2>
+      <div class="station-grid">
+      <article role="button" tabindex="0" class="station-card has-certificate" data-certificate="/assets/zeugnisse/tibas.jpeg" data-mime="image/jpeg" data-title="Zeugnis — tibas GmbH" aria-label="Zeugnis von tibas GmbH öffnen">
+        <div class="station-card-inner">
+          <h3>tibas GmbH</h3>
+          <p class="station-role">Sachbearbeiter im Vertrieb</p>
+          <p class="station-period">Mai 2025 – Apr 2026</p>
+          <p class="station-location">Eching</p>
+          <span class="station-cert-hint">Zeugnis ansehen</span>
+        </div>
+      </article>
+      <article role="button" tabindex="0" class="station-card has-certificate" data-certificate="/assets/zeugnisse/atzinger.jpg" data-mime="image/jpeg" data-title="Zeugnis — Atzinger Verpackung GmbH" aria-label="Zeugnis von Atzinger Verpackung GmbH öffnen">
+        <div class="station-card-inner">
+          <h3>Atzinger Verpackung GmbH</h3>
+          <p class="station-role">Vertriebsmitarbeiter (Innendienst)</p>
+          <p class="station-period">Dez 2021 – Dez 2024</p>
+          <p class="station-location">Gilching</p>
+          <span class="station-cert-hint">Zeugnis ansehen</span>
+        </div>
+      </article>
+      <article class="station-card" aria-label="Mouser Electronics Inc.">
+        <div class="station-card-inner">
+          <h3>Mouser Electronics Inc.</h3>
+          <p class="station-role">Customer Accounts Representative</p>
+          <p class="station-period">Jan 2021 – Mai 2021</p>
+          <p class="station-location">München</p>
+          <span class="station-cert-hint muted">Kein Zeugnis hinterlegt</span>
+        </div>
+      </article>
+      <article class="station-card" aria-label="Ingram Micro Distribution">
+        <div class="station-card-inner">
+          <h3>Ingram Micro Distribution</h3>
+          <p class="station-role">Kaufmann im Groß- und Außenhandel (Ausbildung)</p>
+          <p class="station-period">Sep 2017 – Feb 2020</p>
+          <p class="station-location">Dornach</p>
+          <span class="station-cert-hint muted">Kein Zeugnis hinterlegt</span>
+        </div>
+      </article>
+      </div>
+    </section>
+
+    <section class="panel about-panel" id="ueber-mich" aria-labelledby="about-title">
+      <h2 id="about-title">Über mich</h2>
+      <div class="about-body">
+          <p>Vertriebsprofil mit Erfahrung im B2B-Innendienst, Key-Account-Betreuung, Einkauf/Preisverhandlung und Digitalisierungsprojekten. Eigenes KI-Projekt: lokale KI-Workstation (OpenClaw, Ollama, Telegram, BewerbungsAgent, Review).</p>
+          <p>Nachweise aus Lebenslauf, Arbeitszeugnissen und Repository K:/AI.</p>
+          <p>Ich freue mich über den persönlichen Austausch und bringe Zuverlässigkeit, Neugier und echte Begeisterung für vertriebliche und digitale Themen mit.</p>
+        <p class="about-location">
+          <svg class="icon-location" width="18" height="18" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+            <path fill="currentColor" d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5a2.5 2.5 0 1 1 0-5 2.5 2.5 0 0 1 0 5z"/>
+          </svg>
+          <span>85368 Moosburg, Bayern</span>
+        </p>
+        <p class="about-contact"><a href="mailto:Florianpfisterhammer@gmail.com">Florianpfisterhammer@gmail.com</a> · <span>015128935909</span></p>
+      </div>
+    </section>
+    <section class="panel applications-panel" id="bewerbungen">
+      <h2>Aktuelle Bewerbungen</h2>
+      <ul class="application-links">
+          <li><a href="/leyton-deutschland-gmbh/">Leyton Deutschland GmbH</a> <span class="muted">— Inside Sales Representative (m/w/d)</span></li>
+          <li><a href="/cyqueo-gmbh/">CYQUEO GmbH</a> <span class="muted">— Account Executive / Sales Manager (m/w/d)</span></li>
       </ul>
     </section>
-    <footer>
-      <p>techcore.de</p>
-    </footer>
+    <section class="panel downloads-panel" id="unterlagen">
+      <h2>Unterlagen</h2>
+      <ul class="downloads">
+          <li><a href="/assets/lebenslauf-2026.docx" download>Lebenslauf 2026</a></li>
+          <li><a href="/assets/atzinger-zeugnis.jpg" download>Arbeitszeugnis Atzinger Verpackung GmbH</a></li>
+          <li><a href="/assets/tibas-arbeitszeugnis.jpeg" download>Arbeitszeugnis Tibas Gummi GmbH</a></li>
+      </ul>
+    </section>
   </main>
+
+  <footer class="site-footer">
+    <p>techcore.de</p>
+  </footer>
+
+  <div id="certificate-modal" class="modal" hidden role="dialog" aria-modal="true" aria-labelledby="modal-title">
+    <div class="modal-backdrop" data-close-modal></div>
+    <div class="modal-panel" role="document">
+      <header class="modal-header">
+        <h2 id="modal-title">Zeugnis</h2>
+        <button type="button" class="modal-close" aria-label="Schließen" data-close-modal>&times;</button>
+      </header>
+      <div class="modal-body" id="modal-body"></div>
+      <footer class="modal-footer">
+        <a id="modal-download" href="#" download class="button-secondary">Herunterladen</a>
+        <button type="button" class="button-primary" data-close-modal>Schließen</button>
+      </footer>
+    </div>
+  </div>
+
+  <script src="/assets/site.js" defer></script>
 </body>
 </html>

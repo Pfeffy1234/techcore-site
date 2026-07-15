@@ -1,9 +1,39 @@
 {
-  "exported_at": "2026-07-15T02:31:19.915741+02:00",
+  "exported_at": "2026-07-15T05:03:11.538105+02:00",
   "domain": "techcore.de",
   "base_url": "https://www.techcore.de",
   "qr_url": "https://www.techcore.de/",
-  "structure": "homepage-plus-company-slugs",
+  "structure": "portfolio-homepage-plus-company-slugs",
+  "experiences": [
+    {
+      "id": "exp-tibas",
+      "company": "tibas GmbH",
+      "role": "Sachbearbeiter im Vertrieb",
+      "period": "Mai 2025 – Apr 2026",
+      "certificate": "/assets/zeugnisse/tibas.jpeg"
+    },
+    {
+      "id": "exp-atzinger",
+      "company": "Atzinger Verpackung GmbH",
+      "role": "Vertriebsmitarbeiter (Innendienst)",
+      "period": "Dez 2021 – Dez 2024",
+      "certificate": "/assets/zeugnisse/atzinger.jpg"
+    },
+    {
+      "id": "exp-mouser",
+      "company": "Mouser Electronics Inc.",
+      "role": "Customer Accounts Representative",
+      "period": "Jan 2021 – Mai 2021",
+      "certificate": null
+    },
+    {
+      "id": "exp-ingram-ausbildung",
+      "company": "Ingram Micro Distribution",
+      "role": "Kaufmann im Groß- und Außenhandel (Ausbildung)",
+      "period": "Sep 2017 – Feb 2020",
+      "certificate": null
+    }
+  ],
   "applications": [
     {
       "company": "Leyton Deutschland GmbH",
