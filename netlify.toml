@@ -1,17 +1,24 @@
-[build]
-  publish = "dist"
-  command = "python scripts/export_site.py"
-
-[build.environment]
-  PYTHON_VERSION = "3.12"
-
-[[redirects]]
-  from = "/bewerbung"
-  to = "/bewerbung/"
-  status = 301
-
-[[redirects]]
-  from = "/"
-  to = "/bewerbung/"
-  status = 302
-
+[build]
+  publish = "dist"
+  command = "python scripts/export_site.py"
+
+[build.environment]
+  PYTHON_VERSION = "3.12"
+
+# Trailing-Slash für Firmenseiten (z. B. /bmw → /bmw/)
+[[redirects]]
+  from = "/:slug"
+  to = "/:slug/"
+  status = 301
+  force = false
+
+# Legacy-Pfade von tagcore.de-Phase 2 (optional, falls alte QR-Codes existieren)
+[[redirects]]
+  from = "/bewerbung"
+  to = "/"
+  status = 301
+
+[[redirects]]
+  from = "/bewerbung/"
+  to = "/"
+  status = 301

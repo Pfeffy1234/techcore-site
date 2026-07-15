@@ -1,22 +1,23 @@
 {
-  "exported_at": "2026-07-15T02:21:28.746455+02:00",
-  "domain": "tagcore.de",
-  "qr_url": "https://tagcore.de/bewerbung",
-  "phase": "2",
+  "exported_at": "2026-07-15T02:31:19.915741+02:00",
+  "domain": "techcore.de",
+  "base_url": "https://www.techcore.de",
+  "qr_url": "https://www.techcore.de/",
+  "structure": "homepage-plus-company-slugs",
   "applications": [
     {
       "company": "Leyton Deutschland GmbH",
       "job_title": "Inside Sales Representative (m/w/d)",
-      "slug": "leyton-deutschland-gmbh-inside-sales-representative-m_w_d",
-      "url": "https://tagcore.de/bewerbung/leyton-deutschland-gmbh-inside-sales-representative-m_w_d",
+      "slug": "leyton-deutschland-gmbh",
+      "url": "https://www.techcore.de/leyton-deutschland-gmbh/",
       "approved_at": "2026-07-13T02:18:01.629521+00:00",
       "has_cover_letter_text": true
     },
     {
       "company": "CYQUEO GmbH",
       "job_title": "Account Executive / Sales Manager (m/w/d)",
-      "slug": "cyqueo-gmbh-account-executive-_-sales-manager-m_w_d",
-      "url": "https://tagcore.de/bewerbung/cyqueo-gmbh-account-executive-_-sales-manager-m_w_d",
+      "slug": "cyqueo-gmbh",
+      "url": "https://www.techcore.de/cyqueo-gmbh/",
       "approved_at": "2026-07-12T01:16:35.680187+00:00",
       "has_cover_letter_text": true
     }

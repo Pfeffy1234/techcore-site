@@ -1,6 +1,8 @@
-# tagcore.de — statische Bewerbungsseite
+# techcore.de — statische Bewerbungsseite
 
-Phase-2-Export für QR-gestützte Bewerbungsunterlagen: Profil, Kompetenzen, Berufserfahrung und Detailseiten pro freigegebener Bewerbung. Erzeugt `dist/` zum Upload beim Hoster.
+Statischer Export für QR-gestützte Bewerbungsunterlagen: schlanke Startseite mit Lebenslauf und Zeugnissen, plus Detailseiten pro freigegebener Bewerbung. Erzeugt `dist/` zum Upload beim Hoster.
+
+**Konfigurierte Domain:** `techcore.de` mit `https://www.techcore.de` (in `site.config.yaml`). Das Repository heißt `techcore-site`; die frühere Bezeichnung `tagcore.de` war vermutlich Speech-to-Text-Verwechslung.
 
 ## Schnellstart
 
@@ -9,46 +11,72 @@ cd K:\AI\Projects\techcore-site
 python scripts\export_site.py
 ```
 
-Ausgabe: `dist/` mit `bewerbung/index.html`, Unterlagen unter `assets/` und `manifest.json`.
+Ausgabe: `dist/` mit `index.html`, Firmenseiten unter `/{slug}/`, Unterlagen unter `assets/` und `manifest.json`.
 
-## QR-URL (Haupteinstieg)
+## URL-Struktur
+
+| Seite | URL | Inhalt |
+|-------|-----|--------|
+| Startseite | `https://www.techcore.de/` | Name, Kurzzeile, 3 Downloads (Lebenslauf, Atzinger, Tibas) |
+| Pro Bewerbung | `https://www.techcore.de/{slug}/` | Anschreiben + Downloads für diese Firma |
+
+Beispiele:
 
 ```
-https://tagcore.de/bewerbung
+https://www.techcore.de/
+https://www.techcore.de/leyton-deutschland-gmbh/
+https://www.techcore.de/cyqueo-gmbh/
 ```
+
+Der Slug wird aus dem **Firmennamen** erzeugt (nicht aus dem Ordnernamen mit Stellentitel).
+
+## QR-Codes
+
+| Zweck | URL |
+|-------|-----|
+| Allgemeine Unterlagen (Lebenslauf + Zeugnisse) | `https://www.techcore.de/` |
+| Konkrete Bewerbung | `https://www.techcore.de/{slug}/` |
 
 Telegram (bestehender QR-Skill):
 
 ```
-qr: https://tagcore.de/bewerbung
+qr: https://www.techcore.de/
+qr: https://www.techcore.de/leyton-deutschland-gmbh/
 ```
 
-## Seiten (Phase 2)
+## Lokale Vorschau (vor Netlify/DNS)
 
-| Seite | URL |
-|-------|-----|
-| Root-Redirect | `https://tagcore.de/` → `/bewerbung/` |
-| Bewerbungsprofil | `https://tagcore.de/bewerbung/` |
-| Pro-Stelle | `https://tagcore.de/bewerbung/{slug}/` |
+Nach dem Export:
 
-Beispiel Detailseite:
-
+```powershell
+cd K:\AI\Projects\techcore-site
+py -m http.server 8080 --directory dist
 ```
-https://tagcore.de/bewerbung/leyton-deutschland-gmbh-inside-sales-representative-m_w_d/
+
+Oder:
+
+```powershell
+scripts\preview.cmd
 ```
+
+Dann im Browser öffnen: **http://localhost:8080**
+
+So können Startseite und Firmenseiten lokal geprüft werden, bevor die Domain live ist.
 
 ## Deployment (Netlify)
 
 1. Repository `Pfeffy1234/techcore-site` mit Netlify verbinden.
 2. `netlify.toml` nutzt `publish = "dist"` und Build `python scripts/export_site.py`.
-3. Domain `tagcore.de` als Custom Domain in Netlify hinterlegen (DNS beim Registrar).
-4. QR-Code mit `https://tagcore.de/bewerbung` drucken.
+3. Domain `techcore.de` (mit `www`) als Custom Domain in Netlify hinterlegen.
+4. QR-Codes mit den URLs oben drucken.
 
 Alternativ: `dist/` manuell per FTP/rsync hochladen.
 
 ## Konfiguration
 
-`site.config.yaml` — Pfade zu Profil, Bewerbungsordnern und Referenzdokumenten.
+`site.config.yaml` — Domain, Pfade zu Profil, Bewerbungsordnern und Referenzdokumenten.
+
+Freigegebene Bewerbungen: Ordner unter `K:\AI\Bewerbungen 2026\` mit gesetztem `approved_at` in `metadata.json`.
 
 ## Tests
 
