@@ -422,31 +422,33 @@ def _render_about_paragraphs(summary: str) -> str:
     text = summary.strip()
     if not text:
         return "<p>Ich freue mich auf den Austausch über passende Herausforderungen im Vertrieb.</p>"
-    chunks = [chunk.strip() for chunk in re.split(r"\n\s*\n", text) if chunk.strip()]
-    filtered = [
-        chunk
-        for chunk in chunks
-        if not re.search(r"(?i)(repository\s+k:|nachweise\s+aus\s+lebenslauf)", chunk)
+
+    sentences = [
+        sentence.strip()
+        for sentence in re.split(r"(?<=[.!?])\s+", text.replace("\n", " "))
+        if sentence.strip()
     ]
-    if not filtered:
-        filtered = chunks[:1]
-    if len(filtered) == 1:
-        sentences = re.split(r"(?<=[.!?])\s+", filtered[0])
-        grouped: list[str] = []
-        current: list[str] = []
-        for sentence in sentences:
-            current.append(sentence)
-            if len(current) >= 2:
-                grouped.append(" ".join(current))
-                current = []
-        if current:
+    sentences = [
+        sentence
+        for sentence in sentences
+        if not re.search(r"(?i)(repository\s+k:|nachweise\s+aus\s+lebenslauf)", sentence)
+    ]
+
+    grouped: list[str] = []
+    current: list[str] = []
+    for sentence in sentences:
+        current.append(sentence)
+        if len(current) >= 2:
             grouped.append(" ".join(current))
-        filtered = grouped or filtered
+            current = []
+    if current:
+        grouped.append(" ".join(current))
+
     warm_close = (
         "Ich freue mich über den persönlichen Austausch und bringe Zuverlässigkeit, "
         "Neugier und echte Begeisterung für vertriebliche und digitale Themen mit."
     )
-    paragraphs = filtered[:3]
+    paragraphs = grouped[:3] or sentences[:2]
     if warm_close not in " ".join(paragraphs):
         paragraphs.append(warm_close)
     return "\n".join(f"          <p>{escape(chunk)}</p>" for chunk in paragraphs[:4])
