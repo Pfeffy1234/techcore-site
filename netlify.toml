@@ -1,0 +1,17 @@
+[build]
+  publish = "dist"
+  command = "python scripts/export_site.py"
+
+[build.environment]
+  PYTHON_VERSION = "3.12"
+
+[[redirects]]
+  from = "/bewerbung"
+  to = "/bewerbung/"
+  status = 301
+
+[[redirects]]
+  from = "/"
+  to = "/bewerbung/"
+  status = 302
+
