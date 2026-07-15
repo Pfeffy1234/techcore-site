@@ -1,9 +1,9 @@
 {
-  "exported_at": "2026-07-15T05:03:11.538105+02:00",
+  "exported_at": "2026-07-15T05:10:53.546194+02:00",
   "domain": "techcore.de",
   "base_url": "https://www.techcore.de",
   "qr_url": "https://www.techcore.de/",
-  "structure": "portfolio-homepage-plus-company-slugs",
+  "structure": "portfolio-homepage",
   "experiences": [
     {
       "id": "exp-tibas",
@@ -32,24 +32,6 @@
       "role": "Kaufmann im Groß- und Außenhandel (Ausbildung)",
       "period": "Sep 2017 – Feb 2020",
       "certificate": null
-    }
-  ],
-  "applications": [
-    {
-      "company": "Leyton Deutschland GmbH",
-      "job_title": "Inside Sales Representative (m/w/d)",
-      "slug": "leyton-deutschland-gmbh",
-      "url": "https://www.techcore.de/leyton-deutschland-gmbh/",
-      "approved_at": "2026-07-13T02:18:01.629521+00:00",
-      "has_cover_letter_text": true
-    },
-    {
-      "company": "CYQUEO GmbH",
-      "job_title": "Account Executive / Sales Manager (m/w/d)",
-      "slug": "cyqueo-gmbh",
-      "url": "https://www.techcore.de/cyqueo-gmbh/",
-      "approved_at": "2026-07-12T01:16:35.680187+00:00",
-      "has_cover_letter_text": true
     }
   ]
 }

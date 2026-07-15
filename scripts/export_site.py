@@ -1,4 +1,4 @@
-"""Statischen Export für techcore.de erzeugen (Portfolio-Startseite + Bewerbungsdetailseiten)."""
+"""Statischen Export für techcore.de erzeugen (Portfolio-Startseite ohne Bewerbungsliste)."""
 
 from __future__ import annotations
 
@@ -467,22 +467,6 @@ def _render_contact(contact: ContactInfo) -> str:
     return f'        <p class="about-contact">{" · ".join(parts)}</p>'
 
 
-def _render_applications(applications: list[ApplicationEntry]) -> str:
-    if not applications:
-        return ""
-    items = "\n".join(
-        f'          <li><a href="/{escape(entry.slug)}/">{escape(entry.company)}</a>'
-        f' <span class="muted">— {escape(entry.job_title)}</span></li>'
-        for entry in applications
-    )
-    return f"""    <section class="panel applications-panel" id="bewerbungen">
-      <h2>Aktuelle Bewerbungen</h2>
-      <ul class="application-links">
-{items}
-      </ul>
-    </section>"""
-
-
 def render_homepage(
     *,
     title: str,
@@ -490,7 +474,6 @@ def render_homepage(
     contact: ContactInfo,
     experiences: list[ExperienceEntry],
     documents: list[tuple[str, str]],
-    applications: list[ApplicationEntry],
     domain: str,
 ) -> str:
     name = escape(str(person.get("name", "Bewerbungsprofil")))
@@ -499,7 +482,6 @@ def render_homepage(
     station_cards = _render_station_cards(experiences)
     about_paragraphs = _render_about_paragraphs(summary)
     contact_block = _render_contact(contact)
-    applications_block = _render_applications(applications)
 
     doc_items = "\n".join(
         f'          <li><a href="{escape(href)}" download>{escape(label)}</a></li>'
@@ -517,7 +499,7 @@ def render_homepage(
     return f"""<!DOCTYPE html>
 <html lang="de">
 <head>
-{_head_block(title=title, description=f"Portfolio und Bewerbungsmappe — {name}")}
+{_head_block(title=title, description=f"Portfolio — {name}")}
 </head>
 <body>
   <a class="skip-link" href="#main">Zum Inhalt springen</a>
@@ -550,7 +532,6 @@ def render_homepage(
 {contact_block}
       </div>
     </section>
-{applications_block}
 {downloads_section}
   </main>
 
@@ -1125,10 +1106,6 @@ def export_site(config: SiteConfig | None = None) -> Path:
         experiences=experiences,
     )
 
-    applications = collect_applications(config)
-    for entry in applications:
-        entry.cover_letter_download = _copy_application_assets(entry, output_dir)
-
     qr_url = build_qr_url(base_url=config.base_url, landing_path=config.qr_landing_path)
 
     homepage_html = render_homepage(
@@ -1137,21 +1114,9 @@ def export_site(config: SiteConfig | None = None) -> Path:
         contact=contact,
         experiences=experiences,
         documents=document_links,
-        applications=applications,
         domain=config.domain,
     )
     (output_dir / "index.html").write_text(homepage_html, encoding="utf-8")
-
-    for entry in applications:
-        app_dir = output_dir / entry.slug
-        app_dir.mkdir(parents=True, exist_ok=True)
-        app_html = render_application_page(
-            entry=entry,
-            person=person,
-            documents=document_links,
-            cover_letter_text=entry.cover_letter_text,
-        )
-        (app_dir / "index.html").write_text(app_html, encoding="utf-8")
 
     _write_css(output_dir)
     _write_js(output_dir)
@@ -1161,7 +1126,7 @@ def export_site(config: SiteConfig | None = None) -> Path:
         "domain": config.domain,
         "base_url": config.base_url,
         "qr_url": qr_url,
-        "structure": "portfolio-homepage-plus-company-slugs",
+        "structure": "portfolio-homepage",
         "experiences": [
             {
                 "id": exp.id,
@@ -1171,17 +1136,6 @@ def export_site(config: SiteConfig | None = None) -> Path:
                 "certificate": exp.certificate_href,
             }
             for exp in experiences
-        ],
-        "applications": [
-            {
-                "company": entry.company,
-                "job_title": entry.job_title,
-                "slug": entry.slug,
-                "url": entry.url,
-                "approved_at": entry.approved_at,
-                "has_cover_letter_text": bool(entry.cover_letter_text),
-            }
-            for entry in applications
         ],
     }
     (output_dir / "manifest.json").write_text(

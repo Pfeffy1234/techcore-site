@@ -240,29 +240,21 @@ def test_export_site_portfolio(tmp_path: Path, monkeypatch: pytest.MonkeyPatch) 
     assert "test@example.com" in homepage_html
     assert "Lebenslauf 2026" in homepage_html
     assert "Plus+Jakarta+Sans" in homepage_html
-    assert "Firma A" in homepage_html
+    assert "Aktuelle Bewerbungen" not in homepage_html
+    assert "Firma A" not in homepage_html
     assert "Plus Jakarta Sans" in (out / "assets" / "site.css").read_text(encoding="utf-8")
 
     assert (out / "assets" / "zeugnisse" / "tibas.jpeg").is_file()
     assert (out / "assets" / "zeugnisse" / "atzinger.jpg").is_file()
-
-    app_page = out / "firma-a" / "index.html"
-    assert app_page.is_file()
-    app_html = app_page.read_text(encoding="utf-8")
-    assert "Firma A" in app_html
-    assert "Job B" in app_html
-    assert "Sehr geehrte Damen und Herren" in app_html
-    assert 'href="/"' in app_html
-    assert (out / "assets" / "applications" / "firma-a" / "anschreiben.docx").is_file()
+    assert not (out / "firma-a").exists()
+    assert not (out / "assets" / "applications").exists()
 
     manifest = json.loads((out / "manifest.json").read_text(encoding="utf-8"))
     assert manifest["qr_url"] == "https://www.techcore.de/"
-    assert manifest["structure"] == "portfolio-homepage-plus-company-slugs"
+    assert manifest["structure"] == "portfolio-homepage"
     assert len(manifest["experiences"]) == 2
     assert manifest["experiences"][0]["certificate"] == "/assets/zeugnisse/tibas.jpeg"
-    assert manifest["applications"][0]["slug"] == "firma-a"
-    assert manifest["applications"][0]["url"] == "https://www.techcore.de/firma-a/"
-    assert manifest["applications"][0]["has_cover_letter_text"] is True
+    assert "applications" not in manifest
 
 
 def test_certificate_mime_mapping() -> None:
