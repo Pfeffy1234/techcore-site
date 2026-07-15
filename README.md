@@ -1,8 +1,9 @@
-# techcore.de — statische Bewerbungsseite
+# TagCore — statische Bewerbungsseite (tagcore.de)
 
 Statischer Export für QR-gestützte Bewerbungsunterlagen: schlanke Startseite mit Lebenslauf und Zeugnissen, plus Detailseiten pro freigegebener Bewerbung. Erzeugt `dist/` zum Upload beim Hoster.
 
-**Konfigurierte Domain:** `techcore.de` mit `https://www.techcore.de` (in `site.config.yaml`). Das Repository heißt `techcore-site`; die frühere Bezeichnung `tagcore.de` war vermutlich Speech-to-Text-Verwechslung.
+**Marke:** TagCore (T-A-G-C-O-R-E)  
+**Domain:** `tagcore.de` mit `https://www.tagcore.de` (in `site.config.yaml`). Das GitHub-Repository heißt intern `techcore-site`.
 
 ## Schnellstart
 
@@ -17,15 +18,15 @@ Ausgabe: `dist/` mit `index.html`, Firmenseiten unter `/{slug}/`, Unterlagen unt
 
 | Seite | URL | Inhalt |
 |-------|-----|--------|
-| Startseite | `https://www.techcore.de/` | Name, Kurzzeile, 3 Downloads (Lebenslauf, Atzinger, Tibas) |
-| Pro Bewerbung | `https://www.techcore.de/{slug}/` | Anschreiben + Downloads für diese Firma |
+| Startseite | `https://www.tagcore.de/` | Name, Kurzzeile, 3 Downloads (Lebenslauf, Atzinger, Tibas) |
+| Pro Bewerbung | `https://www.tagcore.de/{slug}/` | Anschreiben + Downloads für diese Firma |
 
 Beispiele:
 
 ```
-https://www.techcore.de/
-https://www.techcore.de/leyton-deutschland-gmbh/
-https://www.techcore.de/cyqueo-gmbh/
+https://www.tagcore.de/
+https://www.tagcore.de/leyton-deutschland-gmbh/
+https://www.tagcore.de/cyqueo-gmbh/
 ```
 
 Der Slug wird aus dem **Firmennamen** erzeugt (nicht aus dem Ordnernamen mit Stellentitel).
@@ -34,14 +35,14 @@ Der Slug wird aus dem **Firmennamen** erzeugt (nicht aus dem Ordnernamen mit Ste
 
 | Zweck | URL |
 |-------|-----|
-| Allgemeine Unterlagen (Lebenslauf + Zeugnisse) | `https://www.techcore.de/` |
-| Konkrete Bewerbung | `https://www.techcore.de/{slug}/` |
+| Allgemeine Unterlagen (Lebenslauf + Zeugnisse) | `https://www.tagcore.de/` |
+| Konkrete Bewerbung | `https://www.tagcore.de/{slug}/` |
 
 Telegram (bestehender QR-Skill):
 
 ```
-qr: https://www.techcore.de/
-qr: https://www.techcore.de/leyton-deutschland-gmbh/
+qr: https://www.tagcore.de/
+qr: https://www.tagcore.de/leyton-deutschland-gmbh/
 ```
 
 ## Lokale Vorschau (vor Netlify/DNS)
@@ -67,14 +68,14 @@ So können Startseite und Firmenseiten lokal geprüft werden, bevor die Domain l
 
 1. Repository `Pfeffy1234/techcore-site` mit Netlify verbinden.
 2. `netlify.toml` nutzt `publish = "dist"` und Build `python scripts/export_site.py`.
-3. Domain `techcore.de` (mit `www`) als Custom Domain in Netlify hinterlegen.
+3. Domain `tagcore.de` (mit `www`) als Custom Domain in Netlify hinterlegen.
 4. QR-Codes mit den URLs oben drucken.
 
 Alternativ: `dist/` manuell per FTP/rsync hochladen.
 
 ## Konfiguration
 
-`site.config.yaml` — Domain, Pfade zu Profil, Bewerbungsordnern und Referenzdokumenten.
+`site.config.yaml` — Markenname, Domain, Pfade zu Profil, Bewerbungsordnern und Referenzdokumenten.
 
 Freigegebene Bewerbungen: Ordner unter `K:\AI\Bewerbungen 2026\` mit gesetztem `approved_at` in `metadata.json`.
 

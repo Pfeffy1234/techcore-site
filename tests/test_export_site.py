@@ -57,12 +57,12 @@ def test_company_slug(company: str, expected: str) -> None:
 
 
 def test_build_qr_url() -> None:
-    assert urls.build_qr_url() == "https://www.techcore.de/"
+    assert urls.build_qr_url() == "https://www.tagcore.de/"
 
 
 def test_build_application_url() -> None:
     url = urls.build_application_url("Leyton Deutschland GmbH")
-    assert url == "https://www.techcore.de/leyton-deutschland-gmbh/"
+    assert url == "https://www.tagcore.de/leyton-deutschland-gmbh/"
 
 
 @pytest.mark.parametrize(
@@ -192,8 +192,9 @@ def test_export_site_portfolio(tmp_path: Path, monkeypatch: pytest.MonkeyPatch) 
     config_path.write_text(
         yaml.safe_dump(
             {
-                "domain": "techcore.de",
-                "base_url": "https://www.techcore.de",
+                "brand_name": "TagCore",
+                "domain": "tagcore.de",
+                "base_url": "https://www.tagcore.de",
                 "qr_landing_path": "/",
                 "profile_yaml": str(profile_path),
                 "experiences_dir": str(experiences_dir),
@@ -239,7 +240,8 @@ def test_export_site_portfolio(tmp_path: Path, monkeypatch: pytest.MonkeyPatch) 
     assert "Moosburg" in homepage_html
     assert "test@example.com" in homepage_html
     assert "Lebenslauf 2026" in homepage_html
-    assert "Plus+Jakarta+Sans" in homepage_html
+    assert "TagCore" in homepage_html
+    assert "techcore" not in homepage_html.lower()
     assert "Aktuelle Bewerbungen" not in homepage_html
     assert "Firma A" not in homepage_html
     assert "Plus Jakarta Sans" in (out / "assets" / "site.css").read_text(encoding="utf-8")
@@ -250,7 +252,9 @@ def test_export_site_portfolio(tmp_path: Path, monkeypatch: pytest.MonkeyPatch) 
     assert not (out / "assets" / "applications").exists()
 
     manifest = json.loads((out / "manifest.json").read_text(encoding="utf-8"))
-    assert manifest["qr_url"] == "https://www.techcore.de/"
+    assert manifest["qr_url"] == "https://www.tagcore.de/"
+    assert manifest["brand_name"] == "TagCore"
+    assert manifest["domain"] == "tagcore.de"
     assert manifest["structure"] == "portfolio-homepage"
     assert len(manifest["experiences"]) == 2
     assert manifest["experiences"][0]["certificate"] == "/assets/zeugnisse/tibas.jpeg"

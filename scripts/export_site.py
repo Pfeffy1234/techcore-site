@@ -1,4 +1,4 @@
-"""Statischen Export für techcore.de erzeugen (Portfolio-Startseite ohne Bewerbungsliste)."""
+"""Statischen Export für tagcore.de erzeugen (Portfolio-Startseite ohne Bewerbungsliste)."""
 
 from __future__ import annotations
 
@@ -57,6 +57,7 @@ CERTIFICATE_KEYS = {
 
 @dataclass(frozen=True)
 class SiteConfig:
+    brand_name: str
     domain: str
     base_url: str
     qr_landing_path: str
@@ -112,8 +113,9 @@ def _resolve_path(value: str, *, base: Path) -> Path:
 def load_site_config(config_path: Path = CONFIG_FILE) -> SiteConfig:
     raw = yaml.safe_load(config_path.read_text(encoding="utf-8")) or {}
     return SiteConfig(
-        domain=str(raw.get("domain", "techcore.de")),
-        base_url=str(raw.get("base_url", "https://www.techcore.de")),
+        brand_name=str(raw.get("brand_name", "TagCore")),
+        domain=str(raw.get("domain", "tagcore.de")),
+        base_url=str(raw.get("base_url", "https://www.tagcore.de")),
         qr_landing_path=str(raw.get("qr_landing_path", "/")),
         profile_yaml=_resolve_path(
             str(raw.get("profile_yaml", "../BewerbungsAgent/knowledge/profile.yaml")),
@@ -474,7 +476,7 @@ def render_homepage(
     contact: ContactInfo,
     experiences: list[ExperienceEntry],
     documents: list[tuple[str, str]],
-    domain: str,
+    brand_name: str,
 ) -> str:
     name = escape(str(person.get("name", "Bewerbungsprofil")))
     headline = escape(str(person.get("title", "")).strip())
@@ -536,7 +538,7 @@ def render_homepage(
   </main>
 
   <footer class="site-footer">
-    <p>{escape(domain)}</p>
+    <p>{escape(brand_name)}</p>
   </footer>
 
   <div id="certificate-modal" class="modal" hidden role="dialog" aria-modal="true" aria-labelledby="modal-title">
@@ -1109,12 +1111,12 @@ def export_site(config: SiteConfig | None = None) -> Path:
     qr_url = build_qr_url(base_url=config.base_url, landing_path=config.qr_landing_path)
 
     homepage_html = render_homepage(
-        title=f"{person.get('name', 'Bewerbung')} — {config.domain}",
+        title=f"{person.get('name', 'Bewerbung')} — {config.brand_name}",
         person=person,
         contact=contact,
         experiences=experiences,
         documents=document_links,
-        domain=config.domain,
+        brand_name=config.brand_name,
     )
     (output_dir / "index.html").write_text(homepage_html, encoding="utf-8")
 
@@ -1123,6 +1125,7 @@ def export_site(config: SiteConfig | None = None) -> Path:
 
     manifest = {
         "exported_at": datetime.now().astimezone().isoformat(),
+        "brand_name": config.brand_name,
         "domain": config.domain,
         "base_url": config.base_url,
         "qr_url": qr_url,

@@ -1,10 +1,13 @@
 schema_version: "1.0"
 description: >
-  Statische techcore.de-Bewerbungsseite. Export erzeugt dist/ für Upload beim Hoster.
+  Statische tagcore.de-Bewerbungsseite. Export erzeugt dist/ für Upload beim Hoster.
+
+# Anzeigename der Marke (Footer, Seitentitel)
+brand_name: TagCore
 
 # Konfigurierte Domain (www-Subdomain für QR-Links und absolute URLs)
-domain: techcore.de
-base_url: https://www.techcore.de
+domain: tagcore.de
+base_url: https://www.tagcore.de
 
 # QR-Ziel auf gedruckten Unterlagen (Startseite mit Portfolio)
 qr_landing_path: /

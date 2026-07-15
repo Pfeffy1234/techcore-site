@@ -1,11 +1,11 @@
-"""URL-Hilfen für techcore.de QR-Landing und Bewerbungs-Slugs."""
+"""URL-Hilfen für tagcore.de QR-Landing und Bewerbungs-Slugs."""
 
 from __future__ import annotations
 
 import re
 
-DEFAULT_DOMAIN = "techcore.de"
-DEFAULT_BASE_URL = "https://www.techcore.de"
+DEFAULT_DOMAIN = "tagcore.de"
+DEFAULT_BASE_URL = "https://www.tagcore.de"
 DEFAULT_QR_LANDING_PATH = "/"
 
 _SLUG_PATTERN = re.compile(r"[^\w\-]+", re.UNICODE)
