@@ -57,3 +57,17 @@ Datiertes Log aller Web-Recherchen für die Phase-1-Nischenstrategie. Jede Zahl,
 ## Bekannte Lücke
 
 Keine Live-Daten zu tagesaktuellem Suchvolumen, BSR oder Rezensionszahlen einzelner ASINs eingeholt (dafür wären kostenpflichtige Tools wie Helium10/Jungle Scout oder direkter Amazon-Zugriff nötig, die in dieser Recherche nicht zur Verfügung standen). Alle Wettbewerbs-/Nachfrageeinschätzungen im Strategiedokument sind daher qualitative Einschätzungen basierend auf allgemeinen Kategorie-Mustern, klar als solche gekennzeichnet.
+
+---
+
+## Phase 2: Weitere Produktkandidaten im Bambus/Home-Organisation-Themenfeld
+
+Recherchiert am 2026-07-17, für [`../phase-2-product-candidates/product-candidates.md`](../phase-2-product-candidates/product-candidates.md).
+
+- **Bambus-Produktlinien-Muster:** Bambus-Schubladenorganizer-Sets werden auf Amazon üblicherweise für mehrere Einsatzorte vermarktet (Küche, Bad, Büro, Schmuck/Kosmetik) — Hersteller wie Royal Craft Wood bieten ganze Bambus-Organisation-Kollektionen an, was die Sortiments-Logik (mehrere SKUs im selben Material) stützt. Hölzerne Organizer-Boxen gehören laut Recherche zu den beständig verkauften "Woodworking"-Produkten (geschätzt über 4.000 Verkäufe/Monat für ein führendes Produkt, Stand Juni 2026 laut Analyse-Tool-Auszug in den Suchergebnissen).
+  Quellen: [Royal Craft Wood: Storage & Organization](https://royalcraftwood.com/collections/storage-organization), [Woodworking Projects That Sell 2026](https://amzscout.net/blog/woodworking-projects-that-sell/), [Best Selling Bamboo Storage Box (ASINsight)](https://www.asinsight.com/report/US/bamboo-storage-box)
+- **Bambus-Serviertabletts** gelten als "giftable", mit saisonalen Nachfragespitzen (Weihnachten, Muttertag) — Grund für die niedrigere Nachfrage-Stabilitäts-Bewertung des Serviertablett-Kandidaten (3.6) gegenüber den übrigen, ganzjährig gleichmäßiger nachgefragten Kandidaten.
+  Quelle: [amzscout.net: Woodworking Projects That Sell](https://amzscout.net/blog/woodworking-projects-that-sell/)
+- **Bambus-Gewürzregale und Bambus-Badezimmer-Regale** sind auf Amazon.de bereits mit mehreren etablierten Markenanbietern vertreten (z. B. Kurtzy, Relaxdays) — Grund für die im Vergleich zu 3.1/3.2 leicht niedrigere Wettbewerbs-Bewertung der Kandidaten 3.3/3.4.
+  Quellen: [Kurtzy Bambus Gewürzregal Organizer (Amazon.de)](https://www.amazon.de/Kurtzy-Organiser-abgeschr%C3%A4gter-Aufbewahrungsregal-Badezimmer/dp/B00DZP7GO0), [BambooTidy: Bambus Gewürzregal (B2B/OEM)](https://bambootidy.com/collections/gewuerzregal), [BambooTidy: Bambus Badezimmerregal (B2B/OEM)](https://bambootidy.com/collections/badezimmerregal)
+- **Einschränkung (wie in Phase 1):** Auch hier keine Live-Tool-Daten (Helium10/Jungle Scout) oder verifizierten Lieferanten-Stückpreise verfügbar — alle Preis-/Margen-/Wettbewerbsangaben in `phase-2-product-candidates/product-candidates.md` sind Schätzungen auf Basis der oben genannten Quellen und allgemeiner Marktmuster, keine live-verifizierten Zahlen.
