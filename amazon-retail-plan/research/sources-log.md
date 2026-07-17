@@ -71,3 +71,19 @@ Recherchiert am 2026-07-17, für [`../phase-2-product-candidates/product-candida
 - **Bambus-Gewürzregale und Bambus-Badezimmer-Regale** sind auf Amazon.de bereits mit mehreren etablierten Markenanbietern vertreten (z. B. Kurtzy, Relaxdays) — Grund für die im Vergleich zu 3.1/3.2 leicht niedrigere Wettbewerbs-Bewertung der Kandidaten 3.3/3.4.
   Quellen: [Kurtzy Bambus Gewürzregal Organizer (Amazon.de)](https://www.amazon.de/Kurtzy-Organiser-abgeschr%C3%A4gter-Aufbewahrungsregal-Badezimmer/dp/B00DZP7GO0), [BambooTidy: Bambus Gewürzregal (B2B/OEM)](https://bambootidy.com/collections/gewuerzregal), [BambooTidy: Bambus Badezimmerregal (B2B/OEM)](https://bambootidy.com/collections/badezimmerregal)
 - **Einschränkung (wie in Phase 1):** Auch hier keine Live-Tool-Daten (Helium10/Jungle Scout) oder verifizierten Lieferanten-Stückpreise verfügbar — alle Preis-/Margen-/Wettbewerbsangaben in `phase-2-product-candidates/product-candidates.md` sind Schätzungen auf Basis der oben genannten Quellen und allgemeiner Marktmuster, keine live-verifizierten Zahlen.
+
+---
+
+## Sourcing-Validierung (erster Schritt aus Kapitel 9 der Phase-1-Strategie)
+
+Recherchiert am 2026-07-17. Ziel: die bisherigen Einkaufspreis-Schätzungen für die Bambus-Kandidaten (Top-Pick Schubladenorganizer, Utensilo) mit realen Lieferanten-Rahmenbedingungen abgleichen.
+
+- **Mindestbestellmenge (MOQ):** Für kundenspezifische Bambus-Produkte ist eine MOQ ab ca. 300 Stück marktüblich — niedriger als die in den Kriterien angenommene Richtgröße von 500–2.000 Stück. Das senkt die Einstiegshürde: ein Erstauftrag kann kleiner ausfallen als in den bisherigen Dokumenten unterstellt.
+  Quelle: [Yi Bamboo: Wholesale Custom Bamboo Drawer Organizers](https://www.yibamboo.com/product/wholesale-custom-bamboo-drawer-organizers/)
+- **Zahlungsbedingungen:** Bei chinesischen Herstellern üblich: 30 % Anzahlung, Rest vor Versand per T/T; bei Bestellwerten unter 5.000 USD verlangen manche Lieferanten 50 % Anzahlung. Relevant für die Kapitalbindungs-Kalkulation, die in Kriterium 5 ("Sourcing & Stückkosten") als Risikofaktor genannt wird.
+  Quelle: [made-in-china.com: Bamboo Kitchen Utensil Manufacturers](https://www.made-in-china.com/products-search/hot-china-products/Bamboo_Kitchen_Utensil.html)
+- **Produktions-/Lieferzeit:** Musterproduktion ca. 3–7 Tage, Serienproduktion für größere Mengen ca. 20–60 Tage — vor der eigentlichen Seefracht nach Deutschland. Das verlängert die reale Kapitalbindungsdauer gegenüber einer naiven Rechnung deutlich (Bestellung bis Wareneingang im FBA-Lager realistisch eher 2–4 Monate als wenige Wochen) — wichtiger Hinweis für die Cashflow-Planung, ergänzt Kriterium 5.
+  Quelle: [made-in-china.com: Bamboo Kitchen Utensil Manufacturers](https://www.made-in-china.com/products-search/hot-china-products/Bamboo_Kitchen_Utensil.html)
+- **Marktwachstum:** Bambus-Organizer-Produkte wachsen laut einer Alibaba-Verkäuferquelle mit ca. 8,6 % CAGR — dem höchsten Wert unter verglichenen Materialien —, getrieben von Nachhaltigkeits-Präferenz. Stützt die "Nachfrage-Stabilität"-Bewertung (Kriterium 6) der Bambus-Kandidaten in Phase 1 und 2 zusätzlich.
+  Quelle: [Alibaba Seller Blog: Drawer Organizer Configuration Guide](https://seller.alibaba.com/blogs/2026/southeast-asia/home-storage/drawer-organizer-material-feature-guide-alibaba-b2b)
+- **Weiterhin offen:** Exakte Stückpreise (FOB/EXW) waren über Web-Recherche nicht einsehbar — B2B-Plattformen wie Alibaba und Made-in-China zeigen Preise erst nach Registrierung/Anfrage (RFQ) beim jeweiligen Lieferanten an, nicht öffentlich in Suchergebnissen. Dieser Teil der Validierung erfordert weiterhin einen direkten Kontakt zu mindestens 3 Lieferanten (wie in Kapitel 9/6 der Phase-1/2-Dokumente empfohlen) und kann nicht durch weitere Web-Recherche ersetzt werden.

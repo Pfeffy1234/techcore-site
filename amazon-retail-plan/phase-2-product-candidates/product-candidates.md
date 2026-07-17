@@ -152,6 +152,8 @@ Gleiche Methodik wie Phase 1: [`../criteria/niche-evaluation-criteria.md`](../cr
 
 ## 6. Nächste Validierungsschritte
 
+**Update 2026-07-17:** Allgemeine Sourcing-Rahmenbedingungen für Bambus-Produkte wurden bereits recherchiert (MOQ, Zahlungsbedingungen, Lieferzeiten) — siehe [`../research/sources-log.md`](../research/sources-log.md#sourcing-validierung-erster-schritt-aus-kapitel-9-der-phase-1-strategie). Gilt als Ausgangspunkt für alle Kandidaten dieses Dokuments, ersetzt aber nicht die produktspezifische Lieferantenanfrage in Schritt 2.
+
 1. Prüfen, ob ein Bambus-Lieferant alle vier Sortiments-Produkte anbietet (oder zumindest kombiniert verschifft) — senkt Einfuhr-/Versandkosten pro Einheit gegenüber Einzelbestellungen.
 2. Für 3.1–3.3 reale Angebote von mind. 3 Lieferanten einholen (EU-Großhandel und Alibaba/1688 vergleichen), analog Phase-1-Validierung.
 3. Amazon-Gebührenrechner in Seller Central mit echten Maßen/Gewicht je SKU durchrechnen.

@@ -217,6 +217,8 @@ Margen-Formel je Kandidat: `Verkaufspreis − Vermittlungsgebühr − FBA-Gebüh
 
 ## 9. Nächste Validierungsschritte (für den Top-Kandidaten)
 
+**Update 2026-07-17:** Ein erster Teil-Schritt wurde bereits per Web-Recherche vorgezogen — siehe [`../research/sources-log.md`](../research/sources-log.md#sourcing-validierung-erster-schritt-aus-kapitel-9-der-phase-1-strategie) für realistische MOQ (~300 statt 500–2.000 Stück), Zahlungsbedingungen (30 % Anzahlung üblich) und Lieferzeiten (2–4 Monate Kapitalbindung von Bestellung bis FBA-Wareneingang, nicht nur wenige Wochen). Exakte Stückpreise sind weiterhin nur per direkter Lieferantenanfrage zu bekommen, nicht über Web-Recherche.
+
 1. Reale Lieferanten-Angebote einholen (mind. 3 Anbieter, EU-Großhandel und Alibaba/1688 vergleichen) — bisherige Zahlen sind Schätzungen.
 2. Muster bestellen und Qualität/Maße/Gewicht real prüfen (beeinflusst die tatsächliche FBA-Gebühr).
 3. Amazon-Gebührenrechner in Seller Central mit echten Maßen/Gewicht/Kategorie durchrechnen.
